@@ -17,6 +17,9 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
 
   #Configuración propiedades DataSource Spring
   #El tipo de JDBC ya se incluye por defecto no es necesario agregarlo
