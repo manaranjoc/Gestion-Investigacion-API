@@ -50,12 +50,6 @@
             <artifactId>postgresql</artifactId>
         </dependency>
 
-        <!-- Framework JDBC para manejo del pool de conexiones -->
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-        </dependency>
-
         <!-- Documentación unificada Swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
