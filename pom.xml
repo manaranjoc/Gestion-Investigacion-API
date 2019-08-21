@@ -8,5 +8,87 @@
     <artifactId>gestion-investigacion-api</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!-- Repositorio padre para manejo de versiones de Spring-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.6.RELEASE</version>
+    </parent>
+
+    <!-- Listado de dependencias -->
+    <dependencies>
+        <!-- Dependencia asociada de Spring para servicio REST -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Dependencia correspondiente al manejo de pruebas -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <!--Manejo de pruebas enfocado a la carpeta test -->
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Framework de Spring para interconexión a persistencia -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Standar uniforme para la navegación de los JSON -->
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Manejo de persistencia mediante Base de Datos Postgressql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
+        <!-- Documentación unificada Swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <!-- UI para swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <!-- Pruebas Unitarias -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- Version del JDK usado -->
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <!-- Plugin asociado a Spring boot posee funcionalidad como:
+        Collectar todos los jar en un unico "uber-jar", hace mas conveniente el transporte y su servicio
+        Busca el public static void main como una clase ejecutable
+        Provee una resolvedor de dependencias para compajinar el número de versión con las dependencias de Spring Boot -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
