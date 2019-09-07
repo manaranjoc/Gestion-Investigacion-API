@@ -24,6 +24,9 @@ public class Produccion {
     @OneToMany(mappedBy = "produccion")
     private Set<AutoresPorProducciones> autoresPorProducciones;
 
+    @OneToMany(mappedBy = "produccion")
+    private Set<CategoriasPorProduccion> categoriasPorProduccion;
+
     public Produccion(){}
 
     public Produccion(int produccionID, String titulo, String resumen, Date fechaPublicacion, TipoProduccion tipoProduccion) {

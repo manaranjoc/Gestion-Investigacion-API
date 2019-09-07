@@ -12,16 +12,16 @@ public class AutoresPorProducciones {
 
     @ManyToOne(optional=false,fetch = FetchType.LAZY)
     @JoinColumn(name="personaID")
-    private int autor;
+    private Persona autor;
 
     @ManyToOne(optional=false,fetch = FetchType.LAZY)
     @JoinColumn(name="produccionID")
-    private int produccion;
+    private Produccion produccion;
 
     public AutoresPorProducciones() {
     }
 
-    public AutoresPorProducciones(int autor, int produccion) {
+    public AutoresPorProducciones(Persona autor, Produccion produccion) {
         this.autor = autor;
         this.produccion = produccion;
     }
@@ -34,19 +34,19 @@ public class AutoresPorProducciones {
         this.autoresProdID = autoresProdID;
     }
 
-    public int getAutor() {
+    public Persona getAutor() {
         return autor;
     }
 
-    public void setAutor(int autor) {
+    public void setAutor(Persona autor) {
         this.autor = autor;
     }
 
-    public int getProduccion() {
+    public Produccion getProduccion() {
         return produccion;
     }
 
-    public void setProduccion(int produccion) {
+    public void setProduccion(Produccion produccion) {
         this.produccion = produccion;
     }
 }
