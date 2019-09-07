@@ -16,4 +16,6 @@ public class ProduccionService implements ProduccionServiceInt{
     }
 
     public List<Produccion> getProducciones(){return produccionRepository.findAll();}
+
+    public Produccion addProduccion(Produccion produccion){return produccionRepository.save(produccion);};
 }

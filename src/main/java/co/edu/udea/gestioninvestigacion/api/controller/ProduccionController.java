@@ -23,6 +23,6 @@ public class ProduccionController {
 
     @PostMapping
     public ResponseEntity<Produccion> addProduccion(@RequestBody Produccion newProduccion){
-        return ResponseEntity.ok(produccionService.addProduccion());
+        return ResponseEntity.ok(produccionService.addProduccion(newProduccion));
     }
 }
