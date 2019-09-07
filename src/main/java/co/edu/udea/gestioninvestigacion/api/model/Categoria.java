@@ -3,8 +3,8 @@ package co.edu.udea.gestioninvestigacion.api.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Categorias")
-public class Categorias {
+@Table(name = "Categoria")
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,10 +13,10 @@ public class Categorias {
     private String materia;
     private String tema;
 
-    public Categorias() {
+    public Categoria() {
     }
 
-    public Categorias(String materia, String tema) {
+    public Categoria(String materia, String tema) {
         this.materia = materia;
         this.tema = tema;
     }

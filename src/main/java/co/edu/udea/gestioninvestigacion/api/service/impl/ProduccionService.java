@@ -17,8 +17,10 @@ public class ProduccionService implements ProduccionServiceInt{
     private AutoresPorProduccionRepository autoresPorProduccionRepository;
     private CategoriasPorProduccionRepository categoriasPorProduccionRepository;
 
-    public ProduccionService(ProduccionRepository produccionRepository){
+    public ProduccionService(ProduccionRepository produccionRepository, AutoresPorProduccionRepository autoresPorProduccionRepository, CategoriasPorProduccionRepository categoriasPorProduccionRepository){
         this.produccionRepository = produccionRepository;
+        this.categoriasPorProduccionRepository = categoriasPorProduccionRepository;
+        this.autoresPorProduccionRepository = autoresPorProduccionRepository;
     }
 
     public List<Produccion> getProducciones(){return produccionRepository.findAll();}

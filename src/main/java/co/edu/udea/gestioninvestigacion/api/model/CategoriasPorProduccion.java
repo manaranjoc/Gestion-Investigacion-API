@@ -16,12 +16,12 @@ public class CategoriasPorProduccion {
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "categoriaID")
-    private Categorias categoria;
+    private Categoria categoria;
 
     public CategoriasPorProduccion() {
     }
 
-    public CategoriasPorProduccion(Produccion produccion, Categorias categoria) {
+    public CategoriasPorProduccion(Produccion produccion, Categoria categoria) {
         this.produccion = produccion;
         this.categoria = categoria;
     }
@@ -42,11 +42,11 @@ public class CategoriasPorProduccion {
         this.produccion = produccion;
     }
 
-    public Categorias getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Categorias categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 }
