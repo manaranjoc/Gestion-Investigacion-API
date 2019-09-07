@@ -16,13 +16,18 @@ public class Produccion {
     private String resumen;
     private Date fechaPublicacion;
 
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "tipoProdID")
+    private TipoProduccion tipoProduccion;
+
     public Produccion(){}
 
-    public Produccion(int produccionID, String titulo, String resumen, Date fechaPublicacion) {
+    public Produccion(int produccionID, String titulo, String resumen, Date fechaPublicacion, TipoProduccion tipoProduccion) {
         this.produccionID = produccionID;
         this.titulo = titulo;
         this.resumen = resumen;
         this.fechaPublicacion = fechaPublicacion;
+        this.tipoProduccion = tipoProduccion;
     }
 
     public int getProduccionID() {
@@ -55,5 +60,13 @@ public class Produccion {
 
     public void setFechaPublicacion(Date fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
+    }
+
+    public TipoProduccion getTipoProduccion() {
+        return tipoProduccion;
+    }
+
+    public void setTipoProduccion(TipoProduccion tipoProduccion) {
+        this.tipoProduccion = tipoProduccion;
     }
 }
