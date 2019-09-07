@@ -3,10 +3,7 @@ package co.edu.udea.gestioninvestigacion.api.controller;
 import co.edu.udea.gestioninvestigacion.api.model.Produccion;
 import co.edu.udea.gestioninvestigacion.api.service.impl.ProduccionServiceInt;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +20,9 @@ public class ProduccionController {
 
     @GetMapping
     public ResponseEntity<List<Produccion>> getProducciones(){return ResponseEntity.ok(produccionService.getProducciones());}
+
+    @PostMapping
+    public ResponseEntity<Produccion> addProduccion(@RequestBody Produccion newProduccion){
+        return ResponseEntity.ok(produccionService.addProduccion());
+    }
 }
