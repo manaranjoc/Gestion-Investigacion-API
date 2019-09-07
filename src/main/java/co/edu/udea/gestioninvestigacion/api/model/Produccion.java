@@ -2,6 +2,7 @@ package co.edu.udea.gestioninvestigacion.api.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 //TODO: Revisar componentes y nombre de la tabla.
 @Entity
@@ -19,6 +20,9 @@ public class Produccion {
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "tipoProdID")
     private TipoProduccion tipoProduccion;
+
+    @OneToMany(mappedBy = "produccion")
+    private Set<AutoresPorProducciones> autoresPorProducciones;
 
     public Produccion(){}
 
