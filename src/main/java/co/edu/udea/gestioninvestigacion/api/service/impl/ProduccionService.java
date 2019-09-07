@@ -26,11 +26,16 @@ public class ProduccionService implements ProduccionServiceInt{
     public List<Produccion> getProducciones(){return produccionRepository.findAll();}
 
     public Produccion addProduccion(Produccion produccion){
-        for(AutoresPorProducciones autorPorProduccion: produccion.getAutoresPorProducciones()) {
-            autoresPorProduccionRepository.save(autorPorProduccion);
+        if(produccion.getAutoresPorProducciones() != null) {
+            for (AutoresPorProducciones autorPorProduccion : produccion.getAutoresPorProducciones()) {
+                autoresPorProduccionRepository.save(autorPorProduccion);
+            }
         }
-        for(CategoriasPorProduccion categoriasPorProduccion: produccion.getCategoriasPorProduccion()){
-            categoriasPorProduccionRepository.save(categoriasPorProduccion);
+        if(produccion.getCategoriasPorProduccion() != null) {
+            for (CategoriasPorProduccion categoriasPorProduccion : produccion.getCategoriasPorProduccion()) {
+                //categoriasPorProduccion.setProduccion();
+                categoriasPorProduccionRepository.save(categoriasPorProduccion);
+            }
         }
         return produccionRepository.save(produccion);
     };
