@@ -1,6 +1,10 @@
 package co.edu.udea.gestioninvestigacion.api.service.impl;
 
+import co.edu.udea.gestioninvestigacion.api.model.AutoresPorProducciones;
+import co.edu.udea.gestioninvestigacion.api.model.CategoriasPorProduccion;
 import co.edu.udea.gestioninvestigacion.api.model.Produccion;
+import co.edu.udea.gestioninvestigacion.api.repository.AutoresPorProduccionRepository;
+import co.edu.udea.gestioninvestigacion.api.repository.CategoriasPorProduccionRepository;
 import co.edu.udea.gestioninvestigacion.api.repository.ProduccionRepository;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +14,8 @@ import java.util.List;
 public class ProduccionService implements ProduccionServiceInt{
 
     private ProduccionRepository produccionRepository;
+    private AutoresPorProduccionRepository autoresPorProduccionRepository;
+    private CategoriasPorProduccionRepository categoriasPorProduccionRepository;
 
     public ProduccionService(ProduccionRepository produccionRepository){
         this.produccionRepository = produccionRepository;
@@ -17,5 +23,13 @@ public class ProduccionService implements ProduccionServiceInt{
 
     public List<Produccion> getProducciones(){return produccionRepository.findAll();}
 
-    public Produccion addProduccion(Produccion produccion){return produccionRepository.save(produccion);};
+    public Produccion addProduccion(Produccion produccion){
+        for(AutoresPorProducciones autorPorProduccion: produccion.getAutoresPorProducciones()) {
+            autoresPorProduccionRepository.save(autorPorProduccion);
+        }
+        for(CategoriasPorProduccion categoriasPorProduccion: produccion.getCategoriasPorProduccion()){
+            categoriasPorProduccionRepository.save(categoriasPorProduccion);
+        }
+        return produccionRepository.save(produccion);
+    };
 }
