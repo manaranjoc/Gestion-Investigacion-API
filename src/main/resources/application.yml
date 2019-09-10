@@ -20,6 +20,10 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
+  #Correción Temporal del error se debe cambiar
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
 
   #Configuración propiedades DataSource Spring
   #El tipo de JDBC ya se incluye por defecto no es necesario agregarlo
