@@ -3,8 +3,8 @@ package co.edu.udea.gestioninvestigacion.api.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="AutoresPorProducciones")
-public class AutoresPorProducciones {
+@Table(name="AutoresPorProduccion")
+public class AutoresPorProduccion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,10 +18,10 @@ public class AutoresPorProducciones {
     @JoinColumn(name="produccionID")
     private Produccion produccion;
 
-    public AutoresPorProducciones() {
+    public AutoresPorProduccion() {
     }
 
-    public AutoresPorProducciones(Persona autor, Produccion produccion) {
+    public AutoresPorProduccion(Persona autor, Produccion produccion) {
         this.autor = autor;
         this.produccion = produccion;
     }

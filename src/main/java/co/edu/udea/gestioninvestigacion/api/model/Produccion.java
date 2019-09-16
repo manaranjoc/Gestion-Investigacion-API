@@ -22,7 +22,7 @@ public class Produccion {
     private TipoProduccion tipoProduccion;
 
     @OneToMany(mappedBy = "produccion", fetch = FetchType.LAZY)
-    private Set<AutoresPorProducciones> autoresPorProducciones;
+    private Set<AutoresPorProduccion> autoresPorProducciones;
 
     @OneToMany(mappedBy = "produccion", fetch = FetchType.LAZY)
     private Set<CategoriasPorProduccion> categoriasPorProduccion;
@@ -77,11 +77,11 @@ public class Produccion {
         this.tipoProduccion = tipoProduccion;
     }
 
-    public Set<AutoresPorProducciones> getAutoresPorProducciones() {
+    public Set<AutoresPorProduccion> getAutoresPorProducciones() {
         return autoresPorProducciones;
     }
 
-    public void setAutoresPorProducciones(Set<AutoresPorProducciones> autoresPorProducciones) {
+    public void setAutoresPorProducciones(Set<AutoresPorProduccion> autoresPorProducciones) {
         this.autoresPorProducciones = autoresPorProducciones;
     }
 

@@ -25,4 +25,9 @@ public class ProduccionController {
     public ResponseEntity<Produccion> addProduccion(@RequestBody Produccion newProduccion){
         return ResponseEntity.ok(produccionService.addProduccion(newProduccion));
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Produccion> getProduccion(@PathVariable int id){
+        return ResponseEntity.ok(produccionService.getProduccion(id));
+    }
 }
