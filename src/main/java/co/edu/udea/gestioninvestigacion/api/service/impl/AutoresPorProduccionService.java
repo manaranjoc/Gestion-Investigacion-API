@@ -11,6 +11,10 @@ public class AutoresPorProduccionService implements AutoresPorProduccionServiceI
 
     private AutoresPorProduccionRepository autoresPorProduccionRepository;
 
+    public AutoresPorProduccionService(AutoresPorProduccionRepository autoresPorProduccionRepository) {
+        this.autoresPorProduccionRepository = autoresPorProduccionRepository;
+    }
+
     @Override
     public List<AutoresPorProduccion> findByProduccionId(int produccionId) {
         return autoresPorProduccionRepository.findByProduccionProduccionID(produccionId);
