@@ -21,11 +21,11 @@ public class Produccion {
     @JoinColumn(name = "tipoProdID")
     private TipoProduccion tipoProduccion;
 
-    @OneToMany(mappedBy = "produccion", fetch = FetchType.LAZY)
-    private Set<AutoresPorProduccion> autoresPorProducciones;
+    //@OneToMany(mappedBy = "produccion", fetch = FetchType.LAZY)
+    //private Set<AutoresPorProduccion> autoresPorProducciones;
 
-    @OneToMany(mappedBy = "produccion", fetch = FetchType.LAZY)
-    private Set<CategoriasPorProduccion> categoriasPorProduccion;
+    //@OneToMany(mappedBy = "produccion", fetch = FetchType.LAZY)
+    //private Set<CategoriasPorProduccion> categoriasPorProduccion;
 
     public Produccion(){}
 
@@ -77,7 +77,7 @@ public class Produccion {
         this.tipoProduccion = tipoProduccion;
     }
 
-    public Set<AutoresPorProduccion> getAutoresPorProducciones() {
+    /*public Set<AutoresPorProduccion> getAutoresPorProducciones() {
         return autoresPorProducciones;
     }
 
@@ -91,5 +91,5 @@ public class Produccion {
 
     public void setCategoriasPorProduccion(Set<CategoriasPorProduccion> categoriasPorProduccion) {
         this.categoriasPorProduccion = categoriasPorProduccion;
-    }
+    }*/
 }

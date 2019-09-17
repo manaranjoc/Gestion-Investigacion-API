@@ -3,7 +3,7 @@ package co.edu.udea.gestioninvestigacion.api.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="AutoresPorProduccion")
+@Table(name="AutoresPorProduccion", uniqueConstraints=@UniqueConstraint(columnNames={"personaID", "produccionID"}))
 public class AutoresPorProduccion {
 
     @Id
