@@ -12,7 +12,6 @@ public class Produccion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int produccionID;
-
     private String titulo;
     private String resumen;
     private Date fechaPublicacion;
