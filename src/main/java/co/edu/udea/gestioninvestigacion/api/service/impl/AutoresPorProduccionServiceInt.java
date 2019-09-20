@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface AutoresPorProduccionServiceInt {
     public List<AutoresPorProduccion> findByProduccionId(int produccionId);
-    public AutoresPorProduccion addAutoresPorProduccion(AutoresPorProduccion autoresPorProduccion);
+    public AutoresPorProduccion addAutoresPorProduccion(AutoresPorProduccion autoresPorProduccion, int produccionId);
 }

@@ -5,14 +5,17 @@ import co.edu.udea.gestioninvestigacion.api.repository.AutoresPorProduccionRepos
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AutoresPorProduccionService implements AutoresPorProduccionServiceInt {
 
     private AutoresPorProduccionRepository autoresPorProduccionRepository;
+    private ProduccionServiceInt produccionService;
 
-    public AutoresPorProduccionService(AutoresPorProduccionRepository autoresPorProduccionRepository) {
+    public AutoresPorProduccionService(AutoresPorProduccionRepository autoresPorProduccionRepository, ProduccionServiceInt produccionService) {
         this.autoresPorProduccionRepository = autoresPorProduccionRepository;
+        this.produccionService = produccionService;
     }
 
     @Override
@@ -21,7 +24,12 @@ public class AutoresPorProduccionService implements AutoresPorProduccionServiceI
     }
 
     @Override
-    public AutoresPorProduccion addAutoresPorProduccion(AutoresPorProduccion autoresPorProduccion) {
-        return autoresPorProduccionRepository.save(autoresPorProduccion);
+    public AutoresPorProduccion addAutoresPorProduccion(AutoresPorProduccion autoresPorProduccion, int produccionId) {
+        /*Optional<Produccion> .getProduccion(produccionId).map(produccion -> {
+            autoresPorProduccion.setProduccion(produccion);
+            return autoresPorProduccionRepository.save(autoresPorProduccion);
+        });*/
+        return new AutoresPorProduccion();
+
     }
 }

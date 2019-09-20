@@ -4,6 +4,9 @@ import co.edu.udea.gestioninvestigacion.api.model.Produccion;
 import co.edu.udea.gestioninvestigacion.api.repository.AutoresPorProduccionRepository;
 import co.edu.udea.gestioninvestigacion.api.repository.CategoriasPorProduccionRepository;
 import co.edu.udea.gestioninvestigacion.api.repository.ProduccionRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +21,7 @@ public class ProduccionService implements ProduccionServiceInt{
         this.produccionRepository = produccionRepository;
     }
 
-    public List<Produccion> getProducciones(){return produccionRepository.findAll();}
+    //public List<Produccion> getProducciones(){return produccionRepository.findAll();}
 
     public Produccion addProduccion(Produccion produccion){
         return produccionRepository.save(produccion);
@@ -32,5 +35,12 @@ public class ProduccionService implements ProduccionServiceInt{
             //Todo: Cambiar por la Excepción correspondiente.
             return new Produccion();
         }
+    }
+
+    @Override
+    public Page<Produccion> findPaginated(int page, int size) {
+        Pageable searchPage = PageRequest.of(page,size);
+        return produccionRepository.findAll(searchPage);
+
     }
 }
