@@ -1,9 +1,6 @@
 package co.edu.udea.gestioninvestigacion.api.service.impl;
 
-import co.edu.udea.gestioninvestigacion.api.model.AutoresPorProducciones;
-import co.edu.udea.gestioninvestigacion.api.model.CategoriasPorProduccion;
-import co.edu.udea.gestioninvestigacion.api.model.PagingResult;
-import co.edu.udea.gestioninvestigacion.api.model.Produccion;
+import co.edu.udea.gestioninvestigacion.api.model.*;
 import co.edu.udea.gestioninvestigacion.api.repository.AutoresPorProduccionRepository;
 import co.edu.udea.gestioninvestigacion.api.repository.CategoriasPorProduccionRepository;
 import co.edu.udea.gestioninvestigacion.api.repository.ProduccionRepository;
@@ -123,6 +120,7 @@ public class ProduccionService implements ProduccionServiceInt{
     }
 
     public Produccion addProduccion(Produccion produccion){
+        System.out.println(produccion);
         if(produccion.getAutoresPorProducciones() != null) {
             for (AutoresPorProducciones autorPorProduccion : produccion.getAutoresPorProducciones()) {
                 autoresPorProduccionRepository.save(autorPorProduccion);
@@ -134,6 +132,10 @@ public class ProduccionService implements ProduccionServiceInt{
                 categoriasPorProduccionRepository.save(categoriasPorProduccion);
             }
         }
+        TipoProduccion tempTipoProduccion = new TipoProduccion();
+        tempTipoProduccion.setTipoProdID(2);
+        tempTipoProduccion.setDescripcion("Trabajo de Grado");
+        produccion.setTipoProduccion(tempTipoProduccion);
         return produccionRepository.save(produccion);
     };
 }
