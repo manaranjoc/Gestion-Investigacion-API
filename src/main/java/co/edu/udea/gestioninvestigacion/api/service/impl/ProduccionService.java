@@ -132,10 +132,11 @@ public class ProduccionService implements ProduccionServiceInt{
                 categoriasPorProduccionRepository.save(categoriasPorProduccion);
             }
         }
-        TipoProduccion tempTipoProduccion = new TipoProduccion();
+        /* ya se hace desde el front end*/
+        /*TipoProduccion tempTipoProduccion = new TipoProduccion();
         tempTipoProduccion.setTipoProdID(2);
         tempTipoProduccion.setDescripcion("Trabajo de Grado");
-        produccion.setTipoProduccion(tempTipoProduccion);
+        produccion.setTipoProduccion(tempTipoProduccion);*/
         return produccionRepository.save(produccion);
     };
 }
