@@ -10,6 +10,8 @@ public interface ProduccionServiceInt {
     public List<Produccion> getProducciones();
     public Produccion addProduccion(Produccion produccion);
     public Produccion getProduccion(Integer id);
+    public void deleteProduccion(Integer id);
+    public Produccion updateProduccion(Produccion produccion);
     public PagingResult<Produccion> getProduccionesPagina(int page, int limit);
     public PagingResult<Produccion> getProduccionesPagina2(int page, int limit, String sortActive, String sortDirection);
     public PagingResult<Produccion> getProduccionesPaginaTitulo(int page, int limit, String sortActive, String sortDirection, String term);

@@ -138,4 +138,12 @@ public class ProduccionService implements ProduccionServiceInt{
         produccion.setTipoProduccion(tempTipoProduccion);
         return produccionRepository.save(produccion);
     };
+
+    public void deleteProduccion(Integer id){
+        produccionRepository.deleteById(id);
+    }
+
+    public Produccion updateProduccion(Produccion produccion){
+        return produccionRepository.save(produccion);
+    }
 }
