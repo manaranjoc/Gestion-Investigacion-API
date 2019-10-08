@@ -31,8 +31,18 @@ public class ProduccionController {
         return ResponseEntity.ok(produccionService.addProduccion(newProduccion));
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteProduccion(@PathVariable Integer id){
+        produccionService.deleteProduccion(id);
+    }
+
+    @PutMapping()
+    public ResponseEntity<Produccion> updateProduccion(Produccion produccion){
+        return ResponseEntity.ok(produccionService.updateProduccion(produccion));
+    }
+
     @GetMapping(value = "consultar/{id}")
-    public ResponseEntity<Produccion> getHero(@PathVariable("id") Integer id){
+    public ResponseEntity<Produccion> getProduccion(@PathVariable("id") Integer id){
         return ResponseEntity.ok(produccionService.getProduccion(id));
     }
 
