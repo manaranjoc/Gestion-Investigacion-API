@@ -26,5 +26,10 @@ pipeline {
 				}
 			}
 		}
+		stage('Package Artifact'){
+			steps{
+				bat 'mvn package'
+			}
+		}
     }
 }
