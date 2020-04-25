@@ -1,11 +1,12 @@
 pipeline {
     agent any
+	tools{
+		maven 'apache-maven-3.6.3'
+	}
     stages {
         stage('build') {
             steps {
-				withMaven(maven: 'apache-maven-3.6.3'){
-					bat 'mvn --version'
-				}
+				bat 'mvn --version'
             }
         }
     }
