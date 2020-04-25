@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                bat 'mvn --version'
+				withMaven(maven: 'apache-maven-3.6.3'){
+					bat 'mvn --version'
+				}
             }
         }
     }
