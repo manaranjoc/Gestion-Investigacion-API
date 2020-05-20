@@ -44,5 +44,13 @@ pipeline {
 				bat 'mvn package'
 			}
 		}
+		stage('Deploy'){
+			when{
+				branch 'master'
+			}
+			steps{
+				bat 'mvn heroku:deploy'
+			}
+		}
     }
 }

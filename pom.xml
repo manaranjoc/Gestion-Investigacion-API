@@ -101,6 +101,17 @@
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.7.0.1746</version>
             </plugin>
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <appName>heroapiproyectointegrador</appName>
+                    <processTypes>
+                        <web>java $JAVA_OPTS -cp target/classes:target/dependency/* co.edu.udea.gestioninvestigacion.api.App</web>
+                    </processTypes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

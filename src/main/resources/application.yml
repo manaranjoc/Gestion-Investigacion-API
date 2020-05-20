@@ -1,6 +1,6 @@
 #Propiedades del Servidor
 server:
-  port: 8080
+  port: ${PORT:8080}
 #Propiedades de Spring
 spring:
   #Propiedades relacionadas con la aplicación
