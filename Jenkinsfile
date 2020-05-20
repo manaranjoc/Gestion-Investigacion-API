@@ -3,6 +3,10 @@ pipeline {
 	tools{
 		maven 'apache-maven-3.6.3'
 	}
+    enviroment {
+	    
+	    HEROKU_API_KEY = credentials('heroku-key')
+    }
     stages {
         stage('Build') {
             steps {
@@ -49,9 +53,7 @@ pipeline {
 				branch 'master'
 			}
 			steps{
-				withCredentials([usernamePassword(credentialsId: 'heroku', passwordVariable: 'C_PASS', usernameVariable: 'C_USER')]) {
-					bat 'HEROKU_API_KEY="${C_PASS}" mvn heroku:deploy'
-				}
+				bat 'mvn heroku:deploy'
 			}
 		}
     }
