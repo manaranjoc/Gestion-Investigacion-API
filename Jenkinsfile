@@ -49,7 +49,9 @@ pipeline {
 				branch 'master'
 			}
 			steps{
-				bat 'mvn heroku:deploy'
+				withCredentials([usernamePassword(credentialsId: 'heroku', passwordVariable: 'C_PASS', usernameVariable: 'C_USER')]) {
+					bat 'HEROKU_API_KEY="${C_PASS}" mvn heroku:deploy'
+				}
 			}
 		}
     }
