@@ -27,6 +27,9 @@ pipeline {
 			}
 		}
 		stage('Quality Gate'){	
+			when{
+				branch 'master'
+			}
 			steps{	
 				timeout(time:1, unit: 'HOURS'){	
 					waitForQualityGate abortPipeline: true
@@ -34,6 +37,9 @@ pipeline {
 			}	
 		}
 		stage('Package Artifact'){
+			when{
+				branch 'master'
+			}
 			steps{
 				bat 'mvn package'
 			}
